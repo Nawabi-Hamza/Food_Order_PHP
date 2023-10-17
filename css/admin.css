@@ -1,0 +1,173 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper{
+    /* border:1px solid black; */
+    padding:1%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.text-center{
+    text-align: center;
+}
+.clearfix{
+    float:none;
+    clear: both;
+}
+.alert-success,
+.alert-danger{
+    background-color: #ff7675;
+    width: max-content;
+    /* padding: 1%; */
+    border-radius: 12px;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    color: white;
+}
+.alert-success{
+    background-color: #00b894;
+
+}
+.input-box{
+    padding:7px 14px;
+    border-radius: 5px;
+    margin:0px 10px;
+    border-color: gray;
+    border-width: 1px;
+    height: 30px;
+    width: 200px;
+}
+
+
+
+/* =================== */
+/* Design Menu Section */
+.menu{
+    border-bottom: 1px solid gray;
+}
+.menu ul{
+    list-style-type: none;
+}
+.menu ul li{
+    display:inline;
+    padding: 1%;
+
+}
+.menu ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    color:#00cec9;
+}
+.menu ul li a:hover{
+    color:#81ecec;
+}
+.tbl-full{
+    width: 100%;
+}
+.tbl-30{
+    width: 30%;
+}
+
+table tr th{
+    border-bottom:1px solid black;
+    padding:1%;
+    text-align: left;
+}
+table tr td{
+    padding:1%;
+}
+.btn-primary,
+.btn-secondary,
+.btn-danger{
+    background-color:#74b9ff ;
+    padding: 1%;
+    text-decoration: none;
+    color: white;
+    border-radius: 2px;
+    font-weight: bold;
+}
+.btn-primary:hover{
+    background-color: #0984e3;
+    cursor: pointer;
+}
+.btn-secondary{
+    background-color:#55efc4 ;
+    color:black;
+}
+.btn-secondary:hover{
+    cursor: pointer;
+    background-color:#00b894 ;
+}
+.btn-danger{
+    background-color:#ff7675;
+}
+.btn-danger:hover{
+    cursor: pointer;
+    background-color:#d63031 ;
+}
+
+
+
+
+
+/* =========================== */
+/* Design Main Content Section */
+.main-content{
+    /* margin: 1% 0; */
+    background-color: #f1f2f6;
+    padding: 3% 0;
+}
+.col-4{
+    width: 18%;
+    background-color: white;
+    margin:1%;
+    padding: 2%;
+    float:left;
+}
+
+/* ===================== */
+/* Design Footer Section */
+.footer{
+    background-color: #81ecec;
+    color:white;
+}
+
+/* ==========CSS FOR LOGIN========== */
+.login{
+    width: 25%;
+    border: 1px solid grey;
+    /* background-color: #00b894; */
+    margin: 10% auto;
+    padding: 2% ;
+}
+.login input{
+    padding: 1%;
+    height: 20px;
+    width: 100%;
+    font-size: 20px;
+    margin: 4% auto;
+    border: none;
+    border-bottom: 1px solid grey;
+    outline: none;
+    transition: .4s;
+}
+.login input:focus{
+    border-bottom: 1px solid #74b9ff;
+    color: #74b9ff;
+}
+.login .label{
+    text-align: left;
+}
+.login button{
+    padding: 1%;
+    /* height: 20px; */
+    width: 100%;
+    font-size: 20px;
+    margin:2% auto;
+}
