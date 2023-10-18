@@ -1,5 +1,8 @@
+<?php include "partials/menu.php"; ?>
+
+
 <?php
-    include "connection.php";
+    // include "connection.php";
     // get id to delete
     $id = $_GET['id'];
     $query = "SELECT id FROM tbl_admin WHERE id='$id'";
@@ -11,7 +14,6 @@
 
 ?>
 
-<?php include "partials/menu.php"; ?>
 
     <div class="wrapper">
         are you sure want to delete this user ?

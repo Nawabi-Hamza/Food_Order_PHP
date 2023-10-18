@@ -1,6 +1,6 @@
 <?php 
     include "partials/menu.php";
-    include "connection.php";
+    // include "connection.php";
 
 
     // Get Data from id 
@@ -27,15 +27,15 @@
                     </tr>
                     <tr>
                         <td>Current Password:</td>
-                        <td><input type="password" name="current_password"  placeholder="Old Password "></td>
+                        <td><input type="password" name="current_password" minlength="5"  placeholder="Old Password "></td>
                     </tr>
                     <tr>
                         <td>New Password:</td>
-                        <td><input type="password" name="new_password"  placeholder="New Passoword "></td>
+                        <td><input type="password" name="new_password" minlength="5"  placeholder="New Passoword "></td>
                     </tr>
                     <tr >
                         <td>Confirm Password</td>
-                        <td><input type="password" name="confirm_password" placeholder="Confirm Password "></td>
+                        <td><input type="password" name="confirm_password" minlength="5" placeholder="Confirm Password "></td>
                     </tr>
                     <tr >
                         <td>
@@ -91,7 +91,7 @@
                     unset($_SESSION['add']);
                 }
             }else{
-                $_SESSION['add'] = "User did not found !";
+                $_SESSION['add'] = "Check your current password !";
                 echo "<div class='alert-danger' style='padding:1%;'>";
                     echo $_SESSION['add'];
                 echo "</div>";

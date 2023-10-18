@@ -10,6 +10,14 @@
                     echo $_SESSION['add-category'];
                     unset($_SESSION['add-category']);
                 }
+                if(isset($_SESSION['delete-category'])){
+                    echo $_SESSION['delete-category'];
+                    unset($_SESSION['delete-category']);
+                }
+                if(isset($_SESSION['update-category'])){
+                    echo $_SESSION['update-category'];
+                    unset($_SESSION['update-category']);
+                }
 
 
 
@@ -31,6 +39,8 @@
                         <th>S.N.</th>
                         <th>Title</th>
                         <th>Image</th>
+                        <th>Featured</th>
+                        <th>Active</th>
                         <th>Actions</th>
                     </tr>
                     <?php 
@@ -42,9 +52,11 @@
                         <td><?php print_r($num++); ?></td>
                         <td><?php print_r($rows['title']); ?></td>
                         <td><img src="../images/category/<?php print_r($rows['image_name']); ?>" style="height:60px;width:100px;object-fit:cover;" alt=""></td>
+                        <td><?php if($rows['featured']=="Yes"){ echo "✔️"; }else{ echo "❌"; } ?></td>
+                        <td><?php if($rows['active']=="Yes"){ echo "✔️"; }else{ echo "❌"; } ?></td>
                         <td>
-                            <a href="" class="btn-secondary">Update Category</a>
-                            <a href="" class="btn-danger">Delete Category Category</a>
+                            <a href="./update-category.php?id=<?php echo $rows['id'];?>" class="btn-secondary">Update Category</a>
+                            <a href="./delete-category.php?id=<?php echo $rows['id'];?>&image=<?php echo $rows['image_name'];?>" class="btn-danger">Delete Category</a>
                         </td>
                     </tr>
                     <?php

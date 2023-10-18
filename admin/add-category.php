@@ -22,11 +22,11 @@
                 <table class="tbl-30">
                     <tr>
                         <td>Title:</td>
-                        <td><input type="text" name="title" placeholder="Enter your name "></td>
+                        <td><input type="text" name="title" placeholder="Enter your name " required></td>
                     </tr>
                     <tr>
                         <td>Image:</td>
-                        <td><input type="file" name="image" placeholder="Your username "></td>
+                        <td><input type="file" name="image" placeholder="Your username " ></td>
                     </tr>
                     <tr >
                         <td>Feature:</td>

@@ -9,6 +9,7 @@
         <div class="wrapper">
 
             <h1>DASHBOARD</h1>
+            <br><br><br>
             <?php
                 if(isset($_SESSION['login'])){
                     echo $_SESSION['login'];
@@ -22,7 +23,7 @@
             <div class="col-4 text-center">
                 <h1>5</h1>
                 <br>
-                Categories
+                Users
             </div>
             <div class="col-4 text-center">
                 <h1>5</h1>
@@ -32,12 +33,12 @@
             <div class="col-4 text-center">
                 <h1>5</h1>
                 <br>
-                Categories
+                Food
             </div>
             <div class="col-4 text-center">
                 <h1>5</h1>
                 <br>
-                Categories
+                Orders
             </div>
             <div class="clearfix"></div>
         </div>

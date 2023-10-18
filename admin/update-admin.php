@@ -1,6 +1,6 @@
 <?php 
     include "partials/menu.php";
-    include "connection.php";
+    // include "connection.php";
 
 
     // Get Data from id 
