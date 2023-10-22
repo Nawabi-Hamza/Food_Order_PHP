@@ -35,8 +35,8 @@
         // unset($_SESSION['no-login-message']);
     }
     if(isset($_POST['submit'])){
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);
+        $username = mysqli_real_escape_string($connect,$_POST['username']);
+        $password = mysqli_real_escape_string($connect,md5($_POST['password']));
 
         $query = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
         $result = mysqli_query($connect,$query);

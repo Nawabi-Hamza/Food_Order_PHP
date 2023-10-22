@@ -73,11 +73,21 @@ h3{
 }
 .float-container{
     position: relative;
+    transition: .5s;
 }
 .float-text{
     position: absolute;
-    bottom: 50px;
-    left: 40%;
+    bottom: -50px;
+    transition: .5s;
+    left:50px;
+}
+.float-container:hover img {
+    transition: .5s;
+    opacity: 0.6;
+    
+}
+.float-container:hover .float-text{
+    bottom:100px;
 }
 fieldset{
     border: 1px solid white;
@@ -257,3 +267,5 @@ fieldset{
         width: 100%;
     }
 }
+
+

@@ -88,6 +88,7 @@
             </form>
             <!-- end add category -->
     <?php 
+        // echo gmdate('Y m d');
         if(isset($_POST['submit'])){
             $title = $_POST['title'];
             $description = $_POST['description'];
@@ -97,8 +98,8 @@
             $active = $_POST['active'];
             // Image importent
             $image = $_FILES['image'];
-            $image_name = $_FILES['image']['name'];
-            $destination = "../images/posts/".$image_name;
+            $image_name = gmdate('Y m d')."_".time()."_".$_FILES['image']['name'];
+            $destination = "../images/foods/".$image_name;
             $path_image = $image['tmp_name'];
             // upload image
             $upload = move_uploaded_file($path_image,$destination);

@@ -6,11 +6,22 @@
             <h1>Manage Food</h1>
             <div class="clearfix"></div>
     <!-- Button To Add Admin -->
-        <?php 
+    <br><br>
+            <a href="./add-food.php" class="btn-primary">Add Food</a>
+            <br><br><br>
+            <?php 
             if(isset($_SESSION['add-food'])){
                 echo $_SESSION['add-food'];
                 unset($_SESSION['add-food']);
             }
+            if(isset($_SESSION['delete-food'])){
+                echo $_SESSION['delete-food'];
+                unset($_SESSION['delete-food']);
+            }
+            if(isset($_SESSION['update-food'])){
+                echo $_SESSION['update-food'];
+                unset($_SESSION['update-food']);
+            }   
 
             $query = "SELECT tbl_food.id, tbl_food.title, tbl_food.description, tbl_food.price, tbl_food.image_name, tbl_food.category_id, tbl_food.featured, tbl_food.active,tbl_category.title as category FROM tbl_food , tbl_category WHERE tbl_food.category_id = tbl_category.id";
             $result = mysqli_query($connect,$query);
@@ -20,9 +31,7 @@
             }else{
                 $num = 1;
         ?>
-    <br><br>
-            <a href="./add-food.php" class="btn-primary">Add Food</a>
-            <br><br><br>
+            
                 <table class="tbl-full">
                     <tr>
                         <th>S.N.</th>
@@ -51,14 +60,14 @@
                                     echo $des;
                                 }
                             ?></td>
-                        <td><?php print_r($rows['price']); ?></td>
+                        <td><?php print_r($rows['price']); ?> $</td>
                         <td><?php print_r($rows['category']); ?></td>
                         <td><?php if($rows['featured']=="Yes"){ echo "✔️"; }else{ echo "❌"; } ?></td>
                         <td><?php if($rows['active']=="Yes"){ echo "✔️"; }else{ echo "❌"; } ?></td>
-                        <td><img src="../images/posts/<?php print_r($rows['image_name']); ?>" style="height:80px;width:80px;object-fit:cover;" alt=""></td>
+                        <td><img src="../images/foods/<?php print_r($rows['image_name']); ?>" style="height:80px;width:80px;object-fit:cover;" alt=""></td>
                         <td>
-                            <a href="" class="btn-secondary">Update Food</a>
-                            <a href="" class="btn-danger">Delete Food</a>
+                            <a href="./update-food.php?id=<?php echo $rows['id']; ?>" class="btn-secondary">Update Food</a>
+                            <a href="./delete-food.php?id=<?php echo $rows['id']; ?>&image=<?php echo $rows['image_name'];?>" class="btn-danger">Delete Food</a>
                         </td>
                     </tr>
                     <?php } ?>

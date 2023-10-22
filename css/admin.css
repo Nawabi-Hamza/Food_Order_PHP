@@ -137,7 +137,18 @@ table tr td{
     background-color: #81ecec;
     color:white;
 }
+.footer .row a{
+    text-decoration: none;
+    display: block;
+    margin: 14px 0px;
+    color: black;
+    transition: .3s;
 
+}
+.footer .row a:hover{
+    color: white;
+
+}
 /* ==========CSS FOR LOGIN========== */
 .login{
     width: 25%;
