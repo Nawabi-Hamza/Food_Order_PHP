@@ -10,6 +10,12 @@
     padding: 0 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+html {
+   
+    scroll-behavior: smooth;
+  
+  }
 .container{
     width: 80%;
     margin: 0 auto;
@@ -77,7 +83,7 @@ h3{
 }
 .float-text{
     position: absolute;
-    bottom: -50px;
+    bottom: 50px;
     transition: .5s;
     left:50px;
 }
@@ -86,9 +92,10 @@ h3{
     opacity: 0.6;
     
 }
-.float-container:hover .float-text{
+/* .float-container:hover .float-text{
     bottom:100px;
-}
+} */
+
 fieldset{
     border: 1px solid white;
     margin: 5%;
@@ -99,25 +106,7 @@ fieldset{
 
 /* CSSS for navbar section */
 
-.logo{
-    width: 10%;
-    float: left;
-}
-.menu{
-    line-height: 60px;
-}
-.menu ul{
-    list-style-type: none;
-}
 
-.menu ul li{
-    display: inline;
-    padding: 1%;
-    font-weight: bold;
-}
-
-
-/* CSS for Food SEarch Section */
 
 .food-search{
     background-image: url(../images/bg.jpg);
@@ -269,3 +258,18 @@ fieldset{
 }
 
 
+/* My style customize */
+.nav-link{
+    color:#ff6b81;
+    font-weight: bold;
+}
+
+.logo-img{
+    display: inline;
+}
+.card{
+    transition: .6s;
+}
+.card:hover{
+    box-shadow:2px 2px 12px #747d8c;
+}

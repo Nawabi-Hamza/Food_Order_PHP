@@ -3,7 +3,14 @@
 <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
         <?php 
+
             $id = mysqli_real_escape_string($connect,$_GET['category_id']);
+            for($a=0 ; $a<strlen($id) ; $a++){
+                if($id[$a]=="\\" OR $id[$a]==" "){
+                    header("Location: categories.php");
+                    die();
+                }
+            }
             $query = "SELECT id,title FROM tbl_category WHERE id=$id";
             $result = mysqli_query($connect,$query);
             $count = mysqli_num_rows($result);
@@ -30,41 +37,38 @@
     <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
+            <div class="row">
                 <?php 
                     if($count2 < 1 OR !$result2){
                         echo "<div class='food-menu-box'>here is no food in this category be patient it will come soon</div><br> ";
                     }else{
-                    
-                    while($row = mysqli_fetch_assoc($result2)){
+                        while($rows = mysqli_fetch_assoc($result2)){
+                            $id = $rows['id'];
+                            $title = $rows['title'];
+                            $description = $rows['description'];
+                            $image_name = $rows['image_name'];
+                            $price = $rows['price'];
                 ?>
-                <div class="food-menu-box">
-                    <div class="food-menu-img">
-                        <img src="./images/foods/<?php echo $row['image_name']; ?>" alt="Chicke Hawain Pizza" style="height:130px;object-fit:cover;" class="img-responsive img-curve">
+                    <div class="col-12 col-md-6 col-lg-4 my-2 mx-auto">
+                        <div class="card img-thumbnail">
+                                <img src="./images/foods/<?php echo $image_name; ?>" class="card-img-top " style="height:12em;width:100%;object-fit:cover;" alt="..." loading="lazy">
+                            <div class="card-body">
+                                <div class="card-title d-flex justify-content-between">
+                                    <h5 class=" fw-bold"><?php echo $title; ?></h5>
+                                    <h5 class="fw-bold" style="color:#ff6b81;"><?php echo $price; ?> kr</h5>
+                                </div>
+                                <p class="card-text text-muted"><small><?php echo $description; ?></small></p>
+                                <a href="./order.php?food_id=<?php echo $id; ?>" class="form-control text-center btn-primary p-2 px-4">Order Now</a>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="food-menu-desc">
-                        <h4><?php echo $row['title']; ?></h4>
-                        <p class="food-price">$ <?php echo $row['price']; ?></p>
-                        <p class="food-detail">
-                        <?php echo $row['description']; ?>
-                        </p>
-                        <br>
-
-                        <a href="./order.php?food_id=<?php echo $row['id']; ?>" class="btn btn-primary">Order Now</a>
-                    </div>
-                </div>
-                <?php } ?>
-            
-
+                <!-- End while else and parant else -->
                 <?php   
+                            }
                         }
-                    
                     }
                 ?>
-            <div class="clearfix"></div>
-            
-            
-
+                </div>
         </div>
 
     </section>

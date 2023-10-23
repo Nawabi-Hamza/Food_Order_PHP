@@ -5,6 +5,7 @@
         <div class="container">
             <?php 
                 $id = $_GET['food_id'];
+                ob_start();
                 if(!$id OR $id == ""){
                     header("Location: foods.php");
                 }else{
@@ -71,6 +72,8 @@
     <!-- fOOD sEARCH Section Ends Here -->
 
         <?php
+                // echo date('Y-m-d H:i:s A');
+                // print_r(date('Y-m-d h-m-s'));
                 if(isset($_POST['submit'])){
                     $food = $_POST['food'];
                     $price = $_POST['price'];
@@ -82,12 +85,12 @@
                     $customer_contact = $_POST['contact'];
                     $customer_email = $_POST['email'];
                     $customer_address = $_POST['address'];
-
                     $query = "INSERT INTO tbl_order ( food, price, qty, total, order_date, status, customer_name, customer_contact, customer_email, customer_address) VALUES ('$food','$price','$qty','$total','$order_date','$status','$customer_name','$customer_contact','$customer_email','$customer_address')";
                     $result = mysqli_query($connect,$query);
                     if($result==true){
                         $_SESSION['order'] = "<div class='success'>Your Food is on the way please wait ...</div>";
                         header("Location: index.php");
+                        ob_end_flush();
                     }else{
                         $_SESSION['order'] = "<div class='danger'>Field order food !</div>";
                         header("Location: index.php");

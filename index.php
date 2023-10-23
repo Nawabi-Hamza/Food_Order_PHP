@@ -5,14 +5,22 @@
         <div class="container">
             
             <form action="food-search.php" method="GET">
+                <br>
+                <br>
+                <br>
+                <br>
                 <input type="search" name="search" placeholder="Search for Food.." required>
                 <input type="submit" value="Search" class="btn btn-primary">
+                <br>
+                <br>
+                <br>
+                <br>
             </form>
 
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
-
+ 
     <!-- CAtegories Section Starts Here -->
     <?php
         
@@ -62,8 +70,8 @@
                  ?>
                     <a href="category-foods.php?category_id=<?php echo $id; ?>">
                         <div class="box-3 float-container">
-                            <img src="./images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve" loading="lazy" style="height:500px;object-fit:cover;">
-                            <h3 class="float-text text-white"><?php echo $title;?></h3>
+                            <img src="./images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve" loading="lazy" style="height:400px;object-fit:cover;">
+                            <h3 class="float-text text-white fw-bold"><?php echo $title;?></h3>
                         </div>
                     </a>
                 <?php } ?>
@@ -74,54 +82,41 @@
     <?php  } ?>
     <!-- Categories Section Ends Here -->
 
-    <!-- fOOD MEnu Section Starts Here -->
+    <!-- =================Start Show 6 Foods================= -->
     <?php 
         $query = "SELECT * FROM tbl_food WHERE featured='Yes' AND active='Yes' LIMIT 6";
         $result = mysqli_query($connect,$query);
     ?>
-    <section class="food-menu">
-        <div class="container">
-            <h2 class="text-center">Food Menu</h2>
+    <div class="food-menu">
+        <div class="container-md">
+        <h1 class="text-center">Food Menu</h1>
+        <br><br><br>
+            <div class="row">
             <?php
-                 while($rows = mysqli_fetch_assoc($result)){
-                    $id = $rows['id'];
-                    $title = $rows['title'];
-                    $description = $rows['description'];
-                    $price = $rows['price'];
-                    $image_name = $rows['image_name'];
-             ?>
-                
-                <div class="food-menu-box">
-                    <div class="food-menu-img">
-                        <img src="./images/foods/<?php echo $image_name; ?>" alt="<?php echo $title; ?>" class="img-responsive img-curve" style="height:120px;width:120px;object-fit:cover;" loading="lazy">
-                    </div>
-                    <div class="food-menu-desc">
-                        <h4><?php echo $title; ?></h4>
-                        <p class="food-price">$ <?php echo $price; ?></p>
-                        <p class="food-detail">
-                            <?php echo $description; ?>
-                        </p>
-                        <br>
-
-                        <a href="./order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
+                    while($rows = mysqli_fetch_assoc($result)){
+                        $id = $rows['id'];
+                        $title = $rows['title'];
+                        $description = $rows['description'];
+                        $price = $rows['price'];
+                        $image_name = $rows['image_name'];
+            ?>
+                <div class="col-12 col-sm-6 col-lg-4 my-2">
+                    <div class="card d-flex justify-content-between" >
+                        <img src="./images/foods/<?php echo $image_name; ?>" class="card-img-top" style="height:200px;width:100%;object-fit:cover;" alt="..." loading="lazy">
+                        <div class="card-body px-3 mb-3">
+                            <h5 class="card-title fw-bold"><?php echo $title; ?></h5>
+                            <p class="fw-bold">$ <?php echo $price; ?></p>
+                            <p class="card-text text-muted"><?php echo $description; ?></p>
+                            <a href="./order.php?food_id=<?php echo $id;?>" class="btn-primary p-2 px-4">Order Now</a>
+                        </div>
                     </div>
                 </div>
-
-            
             <?php } ?>
-
-
-            <div class="clearfix"></div>
-
-            
-
+            </div>
         </div>
+    </div>
+    <!-- =================End Show 6 Foods================= -->
 
-        <p class="text-center">
-            <a href="./foods.php">See All Foods</a>
-        </p>
-    </section>
-    <!-- fOOD Menu Section Ends Here -->
 
 
 <?php include "./partial/footer.php"; ?>

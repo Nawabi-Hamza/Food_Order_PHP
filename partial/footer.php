@@ -20,7 +20,7 @@
   <!-- footer Section Starts Here -->
     <section class="footer">
         <div class="container text-center">
-            <p>All rights reserved. Designed By <a href="#">Hamza Nawabi</a></p>
+            <p>All rights reserved. Designed By <a href="https://hamza-nawabi.netlify.app">Hamza Nawabi</a></p>
             <a href="http://localhost/food_order/admin/index.php">Dashboard</a>
         </div>
     </section>

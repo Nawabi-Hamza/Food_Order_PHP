@@ -23,6 +23,7 @@
     <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
+            <div class="row">
                 <?php 
                     // unset($_SESSION['search']);
                     
@@ -36,34 +37,37 @@
                         // echo 'Come soon for this food .....';
                     }
                     while($rows = mysqli_fetch_assoc($result)){
+                        $id = $rows['id'];
+                        $title = $rows['title'];
+                        $description = $rows['description'];
+                        $image_name = $rows['image_name'];
+                        $price = $rows['price'];
 
                     
                 ?>
-            <div class="food-menu-box">
-                <div class="food-menu-img">
-                    <img src="./images/foods/<?php echo $rows['image_name']; ?>" alt="Chicke Hawain Pizza" style="height:130px;object-fit:cover;" class="img-responsive img-curve">
-                </div>
-
-                <div class="food-menu-desc">
-                    <h4><?php echo $rows['title']; ?></h4>
-                    <p class="food-price">$ <?php echo $rows['price']; ?></p>
-                    <p class="food-detail">
-                    <?php echo $rows['description']; ?>
-                    </p>
-                    <br>
-
-                    <a href="./order.php?food_id=<?php echo $rows['id'];?>" class="btn btn-primary">Order Now</a>
-                </div>
-            </div>
+                    <div class="col-12 col-md-6 col-lg-4 my-2 mx-auto">
+                        <div class="card img-thumbnail">
+                                <img src="./images/foods/<?php echo $image_name; ?>" class="card-img-top " style="height:12em;width:100%;object-fit:cover;" alt="..." loading="lazy">
+                            <div class="card-body">
+                                <div class="card-title d-flex justify-content-between">
+                                    <h5 class=" fw-bold"><?php echo $title; ?></h5>
+                                    <h5 class="fw-bold" style="color:#ff6b81;"><?php echo $price; ?> kr</h5>
+                                </div>
+                                <p class="card-text text-muted"><small><?php echo $description; ?></small></p>
+                                <a href="./order.php?food_id=<?php echo $id; ?>" class="form-control text-center btn-primary p-2 px-4">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
             <?php 
             }
             
         }
             ?>
+            </div>
 
            
 
-            <div class="clearfix"></div>
+         
 
             
 
