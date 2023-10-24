@@ -13,9 +13,12 @@
 
         
     ?>
-    <section class="categories">
+    <section class="categories my-5">
         <div class="container">
             <h2 class="text-center">Explore Foods</h2>
+            <div class="row">
+
+            
             <?php
                 while($rows = mysqli_fetch_assoc($result)){
                     $id = $rows['id'];
@@ -23,14 +26,16 @@
                     $image_name = $rows['image_name'];                   
                 
             ?>
-            <a href="./category-foods.php?category_id=<?php echo $id; ?>">
-            <div class="box-3 float-container">
-                <img src="./images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve" style="height:350px;object-fit:cover; ">
-                    <h3 class="float-text text-white"><?php echo $title; ?></h3>
+            <div class="col-md-4 my-3">
+                <a href="./category-foods.php?category_id=<?php echo $id; ?>">
+                <div class=" float-container">
+                    <img src="./images/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve" style="height:350px;object-fit:cover; ">
+                        <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                </div>
+                </a>
             </div>
-            </a>
             <?php } ?>
-
+            </div>
             <div class="clearfix"></div>
         </div>
     </section>

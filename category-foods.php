@@ -1,7 +1,7 @@
 <?php include "./partial/menu.php"; ?>
 
 <!-- fOOD sEARCH Section Starts Here -->
-    <section class="food-search text-center">
+    <section class="text-center">
         <?php 
 
             $id = mysqli_real_escape_string($connect,$_GET['category_id']);
@@ -23,10 +23,8 @@
                 $count2 = mysqli_num_rows($result2);
                 
         ?>
-        <div class="container">
-            
-            <h2>Foods on <a href="#" class="text-white"><?php echo $rows['title']; ?></a></h2>
-
+        <div class="search-custom">                
+                <h2 >Foods on <a href="#" class="text-color-primary"><?php echo $rows['title']; ?></a></h2>
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
@@ -34,7 +32,7 @@
 
 
     <!-- fOOD MEnu Section Starts Here -->
-    <section class="food-menu">
+    <section class="food-menu my-5">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
             <div class="row">

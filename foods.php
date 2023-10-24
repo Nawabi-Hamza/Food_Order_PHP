@@ -1,14 +1,19 @@
 <?php include "./partial/menu.php"; ?>
 
 <!-- fOOD sEARCH Section Starts Here -->
-<section class="food-search text-center">
-        <div class="container">
-            
-            <form action="food-search.php" method="GET">
-                <input type="search" name="search" placeholder="Search for Food.." required>
-                <input type="submit" value="Search" class="btn btn-primary">
-            </form>
-
+    <section class="foo py-5 ">
+            <div class="food-search text-center ">
+            <div class="container">
+                <form action="food-search.php" method="POST">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                        <input type="search" name="search" placeholder="Search for Food.." required>
+                        <input type="submit" value="Search" class="btn btn-primary">
+                    <br>
+                </form>
+            </div>
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
@@ -22,7 +27,7 @@
         $result = mysqli_query($connect,$query);
 
     ?>
-    <section class="food-menu">
+    <section class="food-menu my-5">
         <div class="container">
         <h2 class="text-center">Food Menu</h2>
             <div class="row">

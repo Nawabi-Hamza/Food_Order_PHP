@@ -6,7 +6,7 @@
 
     // redirect to home
 
-    header("Location:http://localhost/food_order/admin/login.php");
+    header("Location: ./login.php");
 
 
 ?>

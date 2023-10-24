@@ -25,23 +25,25 @@
                     echo $_SESSION['delete'];
                     echo "</div>";
                     unset($_SESSION['delete']);
-                }
-             
-                     
+                }                     
              ?>
             <h1>Manage Admin</h1>
-            <div class="clearfix"></div>
+            
             <!-- Button To Add Admin -->
             <br><br>
             <a href="add-admin.php" class="btn-primary">Add Admin</a>
             <br><br><br>
+            <div class="table-responsive ">
                 <table class="tbl-full">
-                    <tr>
-                        <th>S.N.</th>
-                        <th>Full Name</th>
-                        <th>Username</th>
-                        <th>Actions</th>
-                    </tr>
+                    <thead class="table-light">
+                        <tr>
+                            <th>S.N.</th>
+                            <th>Full Name</th>
+                            <th>Username</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                     <?php
                         $n1 = 1;
                         while($rows = mysqli_fetch_assoc($result)){
@@ -52,16 +54,18 @@
                         <td><?php print_r($rows['full_name']) ?></td>
                         <td><?php print_r($rows['username']) ?></td>
                         <td>
-                            <a href='update-password.php?id=<?php print_r($rows['id']) ?>' class='btn-primary'>Change Password</a>
-                            <a href='update-admin.php?id=<?php print_r($rows['id']) ?>' class='btn-secondary'>Update Admin</a>
-                            <a href='delete-admin.php?id=<?php print_r($rows['id']) ?>' class='btn-danger'>Delete Admin Admin</a>
+                            <a href='update-password.php?id=<?php print_r($rows['id']) ?>' class='btn-primary p-2'><i class="bi bi-key text-white"></i></a>
+                            <a href='update-admin.php?id=<?php print_r($rows['id']) ?>' class='btn-secondary p-2'><i class="bi bi-pencil-square text-white"></i></a>
+                            <a href='delete-admin.php?id=<?php print_r($rows['id']) ?>' class='btn-danger p-2'><i class="bi bi-trash text-white"></i></a>
                         </td>
                     </tr>
                     <?php
                         }
-                    ?>                  
+                    ?>  
+                    </tbody>                
                 </table>
-            <div class="clearfix"></div>
+                </div>
+            
         </div>
     </div>
     <!-- Main Content Section End -->

@@ -1,8 +1,7 @@
 <?php include "./partial/menu.php"; ?>
 
 <!-- fOOD sEARCH Section Starts Here -->
-<section class="food-search">
-        <div class="container">
+<section class="foo py-5 ">
             <?php 
                 $id = $_GET['food_id'];
                 ob_start();
@@ -21,51 +20,52 @@
                 // $qty = $_REQUEST['gty'];
             
             ?>
-            <h2 class="text-center text-white">Fill this form to confirm your order.</h2>
+            <h2 class="text-center text-white">Fill this form to confirm your order</h2>
             <h2 class="text-center text-white">we will contact you.</h2>
-
-            <form action="" class="order" method="POST">
-                <fieldset>
-                    <legend>Selected Food</legend>
-
-                    <div class="food-menu-img">
-                        <img src="./images/foods/<?php echo $rows['image_name']; ?>" alt="Chicke Hawain Pizza" style="height:130px;object-fit:cover;" class="img-responsive img-curve">
-                    </div>
-    
-                    <div class="food-menu-desc">
-                        <h3><?php echo $rows['title']; ?></h3>
-                        <input type="hidden" name="food" class="input-responsive" value="<?php echo $rows['title']; ?>" required>
-
-                        <p class="food-price">Price per: <?php echo $rows['price']; ?> $</p>
-                        <input type="hidden" name="price" class="input-responsive" value="<?php echo $rows['price']; ?>" required>
-
-
-                        <div class="order-label">Quantity</div>
-                        <input type="number" name="qty" class="input-responsive" min='1' value="1" required>
-                        
-                        
-                    </div>
-
-                </fieldset>
+            <div class="container">
+                <form action="" class="form-control" method="POST">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <fieldset>
+                                <legend>Selected Food</legend>
+                                <div class="food-menu-img">
+                                    <img src="./images/foods/<?php echo $rows['image_name']; ?>" alt="Chicke Hawain Pizza" style="height:250px;object-fit:cover;" class="img-responsive img-curve">
+                                </div>
                 
-                <fieldset>
-                    <legend>Delivery Details</legend>
-                    <div class="order-label">Full Name</div>
-                    <input type="text" name="full-name" placeholder="E.g. Hamza Nawabi" class="input-responsive" required>
-
-                    <div class="order-label">Phone Number</div>
-                    <input type="tel" name="contact" placeholder="E.g. 93766xxxxxx" class="input-responsive" required>
-
-                    <div class="order-label">Email</div>
-                    <input type="email" name="email" placeholder="E.g. hamza.nawabi119@gmail.com" class="input-responsive" required>
-
-                    <div class="order-label">Address</div>
-                    <textarea name="address" rows="10" placeholder="E.g. Street, City, Country" class="input-responsive" required></textarea>
-
-                    <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary">
-                </fieldset>
-
-            </form>
+                                <div class="food-menu-desc px-3">
+                                    <h3 class="my-3"><?php echo $rows['title']; ?></h3>
+                                    <input type="hidden" name="food" class="" value="<?php echo $rows['title']; ?>" required>
+            
+                                    <p class="food-price fw-bolder">Price per: <?php echo $rows['price']; ?> $</p>
+                                    <input type="hidden" name="price" class="" value="<?php echo $rows['price']; ?>" required>
+            
+            
+                                    <div class="order-label">Quantity</div>
+                                    <input type="number" name="qty" class=" form-control" min='1' value="1" required>
+                                    
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-6 px-3">
+                            <fieldset>
+                                <legend>Delivery Details </legend>
+                                <div class="order-label">Full Name:</div>
+                                <input type="text" name="full-name" placeholder="E.g. Hamza Nawabi" class=" form-control" id="form-custom" required>
+            
+                                <div class="order-label">Phone Number:</div>
+                                <input type="tel" name="contact" placeholder="E.g. 93766xxxxxx" class=" form-control" required>
+            
+                                <div class="order-label">Email:</div>
+                                <input type="email" name="email" placeholder="E.g. hamza.nawabi119@gmail.com" class=" form-control" required>
+            
+                                <div class="order-label">Address:</div>
+                                <textarea name="address" rows="10" placeholder="E.g. Street, City, Country" class=" form-control" required></textarea>
+            
+                                <input type="submit" name="submit" value="Confirm Order" class="btn btn-primary my-4">
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
                 <?php } ?>
         </div>
     </section>

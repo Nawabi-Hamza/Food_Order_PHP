@@ -2,6 +2,7 @@
 
     <?php 
         $id = $_GET['id'];
+        ob_start();
         if($id==""){
             header("Location: manage-order.php");
             die();
@@ -29,7 +30,7 @@
                 </tr>
                 <tr>
                     <td>Price:</td>
-                    <td>$ <?php print_r($row['price']); ?></td>
+                    <td><?php print_r($row['price']); ?> kr</td>
                 </tr>
                 <tr>
                     <td>Qty:</td>
@@ -64,7 +65,7 @@
                 </tr>
                 <tr>
                     <th>Total Pay:</th>
-                    <th>$ <?php echo $row['price']*$row['qty']; ?></th>
+                    <th><?php echo $row['price']*$row['qty']; ?> kr</th>
                     <input type="hidden" name="price" value="<?php print_r($row['price']); ?>">
                 </tr>
                 <tr >
@@ -102,6 +103,7 @@
         if($result){
             $_SESSION['order'] = "<div class='alert-success' style='padding:1%;margin:1% 0;'>order updated successfuly ...</div>";
             header("Location: manage-order.php");
+            ob_end_flush();
         }
     }
 ?>

@@ -14,13 +14,25 @@
 html {
    
     scroll-behavior: smooth;
-  
-  }
-.container{
-    width: 80%;
-    margin: 0 auto;
-    padding: 1%;
+    
 }
+body{
+    animation: transitionIn .8s;
+}
+
+@keyframes transitionIn {
+    from{
+        opacity:0;
+        /* transform: rotateX(-16deg); */
+    }
+    to{
+        opacity:1;
+        /* transform: rotateX(0); */
+    }
+}
+
+
+
 .img-responsive{
     width: 100%;
 }
@@ -41,11 +53,6 @@ html {
     color: white;
 }
 
-.clearfix{
-    clear: both;
-    float: none;
-}
-
 a{
     color: #ff6b81;
     text-decoration: none;
@@ -64,10 +71,15 @@ a:hover{
     background-color: #ff6b81;
     color: white;
     cursor: pointer;
+    border: none;
+    border-radius: 8px;
 }
 .btn-primary:hover{
     color: white;
     background-color: #ff4757;
+}
+.text-color-primary{
+    color: #ff4757;
 }
 h2{
     color: #2f3542;
@@ -92,9 +104,6 @@ h3{
     opacity: 0.6;
     
 }
-/* .float-container:hover .float-text{
-    bottom:100px;
-} */
 
 fieldset{
     border: 1px solid white;
@@ -102,17 +111,35 @@ fieldset{
     padding: 3%;
     border-radius: 5px;
 }
-
-
+legend{
+    border-bottom: 1px solid ;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+}
+.search-custom{
+    background-color: #ff6b8146;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+}
 /* CSSS for navbar section */
 
-
-
+.form-control:focus{
+    border-color: rgba(255, 71, 86, .8);
+    box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(255, 71, 86, .6);
+}
+.foo{
+    background-color: rgba(255, 0, 0, 0.437);
+}
 .food-search{
-    background-image: url(../images/bg.jpg);
-    background-size: cover;
+    background-image: url(../images/logo.png);
+    /* background-color: #ff6b8146; */
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top;
     padding: 7% 0;
 }
 
@@ -136,84 +163,40 @@ fieldset{
     margin: 2%;
 }
 
-
-/* CSS for Food Menu */
-.food-menu{
-    background-color: #ececec;
-    padding: 4% 0;
-}
-.food-menu-box{
-    width: 43%;
-    margin: 1%;
-    padding: 2%;
-    float: left;
-    background-color: white;
-    border-radius: 15px;
+/* CSS for about */
+.about{
+    background-color: #ff6b8146;
 }
 
-.food-menu-img{
-    width: 20%;
-    float: left;
+/* CSS for footer */
+.footer{
+    /* background-color: #ff6b8146; */
+    background:linear-gradient(#ff6b8146,rgba(255, 71, 86, .5)) ;
+    padding: 15px;
+    margin: -15px auto;
 }
-
-.food-menu-desc{
-    width: 70%;
-    float: left;
-    margin-left: 8%;
+.footer a{
+    transition: .4s;
+    color: #2f3542;
 }
-
-.food-price{
-    font-size: 1.2rem;
-    margin: 2% 0;
+.footer a:hover{
+    color:rgba(255, 71, 86, .8);
 }
-.food-detail{
-    font-size: 1rem;
-    color: #747d8c;
-}
-
-
-/* CSS for Social */
-.social ul{
-    list-style-type: none;
-}
-.social ul li{
-    display: inline;
-    padding: 1%;
-}
-
-/* for Order Section */
-.order{
-    width: 50%;
-    margin: 0 auto;
-}
-.input-responsive{
-    width: 96%;
-    padding: 1%;
-    margin-bottom: 3%;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-.order-label{
-    margin-bottom: 1%; 
-    font-weight: bold;
-}
-
 
 
 /* CSS for Mobile Size or Smaller Screen */
 
 @media only screen and (max-width:768px){
     .logo{
-        width: 80%;
-        float: none;
-        margin: 1% auto;
+        height: 100%;
+        /* transform: scale(255%); */
+        /* background-color: #ff4757; */
+        margin:auto;
+        /* margin-left: 25px; */
     }
-
-    .menu ul{
-        text-align: center;
+    .w-25{
+        width: 75%;
     }
-
     .food-search input[type="search"]{
         width: 90%;
         padding: 2%;
@@ -229,32 +212,6 @@ fieldset{
         padding: 10% 0;
     }
 
-    .categories{
-        padding: 20% 0;
-    }
-    h2{
-        margin-bottom: 10%;
-    }
-    .box-3{
-        width: 100%;
-        margin: 4% auto;
-    }
-
-    .food-menu{
-        padding: 20% 0;
-    }
-
-    .food-menu-box{
-        width: 90%;
-        padding: 5%;
-        margin-bottom: 5%;
-    }
-    .social{
-        padding: 5% 0;
-    }
-    .order{
-        width: 100%;
-    }
 }
 
 

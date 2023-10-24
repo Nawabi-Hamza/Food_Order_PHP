@@ -1,8 +1,18 @@
-
+/* Option 2: Import via CSS */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 *{
     margin: 0px;
     padding: 0px;
     font-family: Arial, Helvetica, sans-serif;
+}
+:root{
+    --primary-color:#55efc4;
+    --secondary-color:#00b894 ;
+    --primary-danger-color:#ff6b81;
+    --secondary-danger-color:#ff4757;
+}
+i{
+    font-size: 1em;
 }
 
 .wrapper{
@@ -21,13 +31,10 @@
 }
 .alert-success,
 .alert-danger{
-    background-color: #ff7675;
+    background-color: var(--primary-color) ;
     width: max-content;
-    /* padding: 1%; */
     border-radius: 12px;
-    position: absolute;
-    top: 10%;
-    right: 10%;
+    position: relative;
     color: white;
 }
 .alert-success{
@@ -38,7 +45,7 @@
     padding:7px 14px;
     border-radius: 5px;
     margin:0px 10px;
-    border-color: gray;
+    border-color: var(--primary-color);
     border-width: 1px;
     height: 30px;
     width: 200px;
@@ -82,18 +89,24 @@ table tr th{
 table tr td{
     padding:1%;
 }
+
 .btn-primary,
 .btn-secondary,
 .btn-danger{
-    background-color:#74b9ff ;
+    background-color:var(--primary-color) ;
     padding: 1%;
     text-decoration: none;
     color: white;
+    border-color: var(--secondary-color);
     border-radius: 2px;
     font-weight: bold;
 }
+
+i{
+    font-size: larger;
+}
 .btn-primary:hover{
-    background-color: #0984e3;
+    background-color: var(--secondary-color);
     cursor: pointer;
 }
 .btn-secondary{
@@ -105,15 +118,17 @@ table tr td{
     background-color:#00b894 ;
 }
 .btn-danger{
-    background-color:#ff7675;
+    background-color:var(--primary-danger-color);
 }
 .btn-danger:hover{
     cursor: pointer;
-    background-color:#d63031 ;
+    background-color:var(--secondary-danger-color) ;
 }
 
 
-
+.bg-color-primary{
+    background-color: #55efc4;
+}
 
 
 /* =========================== */
@@ -151,29 +166,40 @@ table tr td{
 }
 /* ==========CSS FOR LOGIN========== */
 .login{
-    width: 25%;
-    border: 1px solid grey;
+    /* width: 25%; */
+    border: 1px solid var(--primary-color);
     /* background-color: #00b894; */
     margin: 10% auto;
     padding: 2% ;
+    border-radius: 12px;
 }
 .login input{
     padding: 1%;
-    height: 20px;
+    height: 40px;
     width: 100%;
     font-size: 20px;
     margin: 4% auto;
     border: none;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
     outline: none;
     transition: .4s;
+    opacity: .5;
 }
 .login input:focus{
-    border-bottom: 1px solid #74b9ff;
-    color: #74b9ff;
+    border-bottom: 1px solid black;
+    color: black;
+    opacity: 1;
+
+}
+.login input::placeholder{
+    color:black;
+    
 }
 .login .label{
     text-align: left;
+    color: black;
+    font-weight: bold;
 }
 .login button{
     padding: 1%;

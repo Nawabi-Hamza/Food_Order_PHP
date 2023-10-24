@@ -1,10 +1,10 @@
 <?php include "./partial/menu.php"; ?>
 
 <!-- fOOD sEARCH Section Starts Here -->
-    <section class="food-search text-center">
+    <section class="search-custom text-center">
         <div class="container">
             <?php 
-                $search = mysqli_real_escape_string($connect,$_GET['search']);
+                $search = mysqli_real_escape_string($connect,$_POST['search']);
                 if($search == ""){
                     header("Location: index.php");
                 }else{
@@ -20,7 +20,7 @@
 
     
     <!-- fOOD MEnu Section Starts Here -->
-    <section class="food-menu">
+    <section class="food-menu my-5">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
             <div class="row">
