@@ -30,7 +30,36 @@
             <div class="clearfix"></div>
             <!-- Button To Add Admin -->
             <br><br>
-            
+            <?php 
+                // process the form in database
+                if(isset($_POST['submit'])){
+                    $name = $_POST['full_name'];
+                    $username = $_POST['username'];
+                    // password encrypt by md5
+                    // $password = $_POST['password'];
+                    if(!$name=="" && !$username==""){
+                        // $password = md5($password);
+                        $query = "UPDATE tbl_admin SET full_name='$name' , username='$username'  WHERE id='$id'";
+                        $result = mysqli_query($connect,$query);
+                        if($result){
+                            // echo "Created !";
+                            $_SESSION['add'] = "Update admin successfuly ...";
+                            header("Location: manage-admin.php");
+                        }else{
+                            $_SESSION['add'] = "Field Update Admin ...";
+                            header("Location: add-admin.php");
+                            // header("Location: manage-admin.php");
+                        }
+                    }
+                    else{
+                        $_SESSION['add'] = "Please Fill all fileds ...";
+                        echo "<div class='alert-danger' style='padding:1%;'>";
+                                echo $_SESSION['add'];
+                        echo "</div>";
+                        // unset($_SESSION['add']);
+                    }
+                }
+            ?>
             <form action="" method="POST">
                 <table class="tbl-30">
                     <tr>
@@ -67,34 +96,7 @@
     else{
         header("Location: manage-admin.php");
     }
-    // process the form in database
-    if(isset($_POST['submit'])){
-        $name = $_POST['full_name'];
-        $username = $_POST['username'];
-        // password encrypt by md5
-        // $password = $_POST['password'];
-        if(!$name=="" && !$username==""){
-            // $password = md5($password);
-            $query = "UPDATE tbl_admin SET full_name='$name' , username='$username'  WHERE id='$id'";
-            $result = mysqli_query($connect,$query);
-            if($result){
-                // echo "Created !";
-                $_SESSION['add'] = "Update admin successfuly ...";
-                header("Location: manage-admin.php");
-            }else{
-                $_SESSION['add'] = "Field Update Admin ...";
-                header("Location: add-admin.php");
-                // header("Location: manage-admin.php");
-            }
-        }
-        else{
-            $_SESSION['add'] = "Please Fill all fileds ...";
-            echo "<div class='alert-danger' style='padding:1%;'>";
-                    echo $_SESSION['add'];
-            echo "</div>";
-            // unset($_SESSION['add']);
-        }
-    }
+    
 
 
 ?>

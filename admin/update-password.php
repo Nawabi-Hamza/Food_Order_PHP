@@ -18,6 +18,45 @@
             <div class="clearfix"></div>
             <!-- Button To Add Admin -->
             <br><br>
+            <?php
+                // process the form in database
+                if(isset($_POST['submit'])){
+                    $current_password = md5($_POST['current_password']);
+                    $new_password = md5($_POST['new_password']);
+                    $confirm_password = md5($_POST['confirm_password']);
+                    // password encrypt by md5
+                    // $password = $_POST['password'];
+                    $query = "SELECT id,password FROM tbl_admin WHERE id='$id' AND password='$current_password'";
+                    $result = mysqli_query($connect,$query);
+                    if($result){
+                        $count = mysqli_num_rows($result);
+                        // echo $count;
+                        if($count==1){
+                            // echo "user found !";
+                            if($new_password===$confirm_password){
+                                $query = "UPDATE tbl_admin SET password='$new_password' WHERE id='$id'";
+                                $result = mysqli_query($connect,$query);
+                                if($result){
+                                    $_SESSION['add'] = "Password updated successfuly ...";
+                                    header("Location: manage-admin.php");
+                                }
+                            }else{
+                                $_SESSION['add'] = "Check your confirm password ! ...";
+                                echo "<div class='alert-danger' style='padding:1%;'>";
+                                    echo $_SESSION['add'];
+                                echo "</div>";
+                                unset($_SESSION['add']);
+                            }
+                        }else{
+                            $_SESSION['add'] = "Check your current password !";
+                            echo "<div class='alert-danger' style='padding:1%;'>";
+                                echo $_SESSION['add'];
+                            echo "</div>";
+                            unset($_SESSION['add']);
+                        }
+                    }        
+                }
+            ?>
             <form action="" method="POST">
                 <table class="tbl-30">
                     <tr>
@@ -27,15 +66,15 @@
                     </tr>
                     <tr>
                         <td>Current Password:</td>
-                        <td><input type="password" name="current_password" minlength="5"  placeholder="Old Password "></td>
+                        <td><input type="password" name="current_password" minlength="5"  placeholder="Old Password " required></td>
                     </tr>
                     <tr>
                         <td>New Password:</td>
-                        <td><input type="password" name="new_password" minlength="5"  placeholder="New Passoword "></td>
+                        <td><input type="password" name="new_password" minlength="5"  placeholder="New Passoword " required ></td>
                     </tr>
                     <tr >
                         <td>Confirm Password</td>
-                        <td><input type="password" name="confirm_password" minlength="5" placeholder="Confirm Password "></td>
+                        <td><input type="password" name="confirm_password" minlength="5" placeholder="Confirm Password " required></td>
                     </tr>
                     <tr >
                         <td>
@@ -62,43 +101,7 @@
     else{
         header("Location: manage-admin.php");
     }
-    // process the form in database
-    if(isset($_POST['submit'])){
-        $current_password = md5($_POST['current_password']);
-        $new_password = md5($_POST['new_password']);
-        $confirm_password = md5($_POST['confirm_password']);
-        // password encrypt by md5
-        // $password = $_POST['password'];
-        $query = "SELECT id,password FROM tbl_admin WHERE id='$id' AND password='$current_password'";
-        $result = mysqli_query($connect,$query);
-        if($result){
-            $count = mysqli_num_rows($result);
-            // echo $count;
-            if($count==1){
-                // echo "user found !";
-                if($new_password===$confirm_password){
-                    $query = "UPDATE tbl_admin SET password='$new_password' WHERE id='$id'";
-                    $result = mysqli_query($connect,$query);
-                    if($result){
-                        $_SESSION['add'] = "Password updated successfuly ...";
-                        header("Location: manage-admin.php");
-                    }
-                }else{
-                    $_SESSION['add'] = "Check your confirm password ! ...";
-                    echo "<div class='alert-danger' style='padding:1%;'>";
-                        echo $_SESSION['add'];
-                    echo "</div>";
-                    unset($_SESSION['add']);
-                }
-            }else{
-                $_SESSION['add'] = "Check your current password !";
-                echo "<div class='alert-danger' style='padding:1%;'>";
-                    echo $_SESSION['add'];
-                echo "</div>";
-                unset($_SESSION['add']);
-            }
-        }        
-    }
+    
 
 
 ?>

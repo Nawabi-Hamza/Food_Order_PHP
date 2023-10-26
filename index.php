@@ -90,10 +90,13 @@
         <div class="container ">
         <h2 class="text-center">About Us</h2>
             <div class="row mb-5">
-                <div class="col-md-6 my-3">
-                    <img src="./images/resturant.jpg" class="w-100 img-curve" style="object-fit:cover;" alt="">
+                <div class="col-md-6 my-5 background-image">
+                    <center>
+                        <img src="./images/resturant.jpg" class="w-75  background-image1 p-2 bg-light " style="object-fit:cover;" alt="">
+                        <img src="https://lh5.googleusercontent.com/p/AF1QipNt2yuyK6SyQ6OAPDTfBqSR1jXc0u6U1qWAWzEC=w203-h270-k-no" class="w-75  background-image2 " style="object-fit:cover;height:380px;" alt="">
+                    </center>
                 </div>
-                <div class="col-md-6 my-3 px-4">
+                <div class="col-md-6 my-5 px-5">
                     <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
                     <p class="fst-italic">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

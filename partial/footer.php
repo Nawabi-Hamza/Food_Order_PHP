@@ -33,7 +33,7 @@
                     <a href="">Youtube</a><br>
                     <a href="">Linkedin</a><br>
                     <a href="">Whats app</a><br>
-                    <a href="">Our Location</a><br>
+                    <a target="_blank" href="https://www.google.com/maps/place/7+tastes+Indiska+mat+och+Pizzeria+Gigante./@57.7119757,11.908161,113m/data=!3m1!1e3!4m15!1m8!3m7!1s0x464f8caf0b684237:0x6172c7fe341bf248!2s7+tastes+Indiska+mat+och+Pizzeria+Gigante.!8m2!3d57.7119635!4d11.9085625!10e1!16s%2Fg%2F1hc9gy6_r!3m5!1s0x464f8caf0b684237:0x6172c7fe341bf248!8m2!3d57.7119635!4d11.9085625!16s%2Fg%2F1hc9gy6_r?hl=en-US&entry=ttu">Our Location</a><br>
                     <a href="">More...</a><br>
                 </div>
             </div>
